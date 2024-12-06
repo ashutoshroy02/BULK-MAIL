@@ -135,9 +135,16 @@ if sender_email:
                     msg['From'] = sender_email
                     msg['To'] = recipient_email
                     msg['Subject'] = subject
-                    old_body = body
-                    # new_body = body
-                    new_body = f"Dear {name},\n\n" + body
+                    
+                    
+                    if upload_option == "Upload File (Excel/CSV)":
+                        old_body = body
+                        # new_body = body
+                        new_body = f"Dear {name}\n" + body
+                    
+                    else:
+                        new_body=body
+                    
                     
                     msg.attach(MIMEText(new_body, 'plain'))
 
@@ -147,8 +154,13 @@ if sender_email:
                         msg.attach(part)
                     # Send the email
                     server.sendmail(sender_email, recipient_email, msg.as_string())
-                    st.write(f"{i} mail sent to {name}.")
-                    new_body = old_body
+                    
+                    if upload_option == "Upload File (Excel/CSV)":
+                        st.write(f"{i} mail sent to {name}.")
+                        new_body = old_body
+                    else:
+                        st.write(f"{i} mail sent.") 
+                        
                 st.success("All Emails sent successfully!")
             except Exception as e:
                 st.error(f"Error: {e}")
