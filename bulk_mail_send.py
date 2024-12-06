@@ -5,6 +5,13 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 import streamlit as st
 
+st.markdown("""
+<style>
+    .css-1d391kg {
+        display: none;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 st.title("Automatic/Bulk Email sender to IIT Professors/Other")
 
@@ -21,7 +28,7 @@ if sender_email:
         recipients = []
 
         if upload_option == "Upload File (Excel/CSV)":
-            uploaded_file = st.file_uploader("Choose your File (Excel/CSV) with Name and Email", type=["csv", "xlsx"])
+            uploaded_file = st.file_uploader("Choose your File (Excel/CSV) with 'name' and 'email' column only", type=["csv", "xlsx"])
 
             if uploaded_file is not None:
                 if uploaded_file.name.endswith('.csv'):
@@ -87,7 +94,7 @@ if sender_email:
             "chandrasheka@cse.iitm.ac.in", "rohan@cse.iitd.ac.in", "puru@cse.iitb.ac.in", "pawang@cse.iitkgp.ac.in", 
             "saradhi@iitg.ac.in", "subruk@cse.iith.ac.in", "murthy@cse.iitm.ac.in", "rvaish@cse.iitd.ac.in", 
             "akash@cse.iitb.ac.in", "pralay@cse.iitkgp.ac.in", "ranbir@iitg.ac.in", "vineethnb@cse.iith.ac.in", 
-            "nagark@cse.iitm.ac.in", "sayanranu@cse.iitd.ac.in", "nutan@cse.iitb.ac.in", 
+            "nagark@cse.iitm.ac.in", "sayanranu@cse.iitd.ac.in", "nutan@cse.iitb.ac.in",
             "rschakraborty@cse.iitkgp.ac.in", "arijit@iitg.ac.in", "nmanik@cse.iitm.ac.in", "srsarangi@cse.iitd.ac.in", 
             "krishnas@cse.iitb.ac.in", "sandipc@cse.iitkgp.ac.in", "phrangboklang@iitg.ac.in", "rupesh@cse.iitm.ac.in", 
             "sbansal@cse.iitd.ac.in", "swaprava@cse.iitb.ac.in", "saptarshi@cse.iitkgp.ac.in", "t.venkat@iitg.ac.in", 
@@ -107,11 +114,12 @@ if sender_email:
             other_recipients = st.text_input("Enter the Recipient Emails (separated by commas)")
             if other_recipients:
                 recipients = [(email.strip(), email.strip()) for email in other_recipients.split(',')]
-        print(recipients)
+        
         # Subject and body inputs
         subject = st.text_input("Enter your Subject ")
+        st.write("Don't write DEAR [Name], it is automatically generated for each person from uploaded file")
         body = st.text_area("Write the Body", height=300)
-
+        
         uploaded_file_attach = st.file_uploader("Choose a file to attach", type=["pdf"])
 
         if st.button("CLICK TO SEND 👌") and len(recipients) > 0:
@@ -127,18 +135,20 @@ if sender_email:
                     msg['From'] = sender_email
                     msg['To'] = recipient_email
                     msg['Subject'] = subject
-
-                    msg.attach(MIMEText(body, 'plain'))
+                    old_body = body
+                    # new_body = body
+                    new_body = f"Dear {name}\n" + body
+                    
+                    msg.attach(MIMEText(new_body, 'plain'))
 
                     if uploaded_file_attach is not None:
                         part = MIMEApplication(uploaded_file_attach.read(), _subtype="pdf")
                         part.add_header('Content-Disposition', 'attachment', filename=uploaded_file_attach.name)
                         msg.attach(part)
-
                     # Send the email
                     server.sendmail(sender_email, recipient_email, msg.as_string())
                     st.write(f"{i} mail sent to {name}.")
-
+                    new_body = old_body
                 st.success("All Emails sent successfully!")
             except Exception as e:
                 st.error(f"Error: {e}")
