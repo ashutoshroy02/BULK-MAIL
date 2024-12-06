@@ -137,7 +137,7 @@ if sender_email:
                     msg['Subject'] = subject
                     old_body = body
                     # new_body = body
-                    new_body = f"Dear {name}\n" + body
+                    new_body = f"Dear {name},\n\n" + body
                     
                     msg.attach(MIMEText(new_body, 'plain'))
 
