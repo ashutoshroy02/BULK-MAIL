@@ -117,7 +117,7 @@ if sender_email:
         
         # Subject and body inputs
         subject = st.text_input("Enter your Subject ")
-        st.write("Don't write DEAR [Name], it is automatically generated for each person from uploaded file")
+        st.write("Don't write **DEAR [Name]**, it is automatically generated for each person from uploaded file")
         body = st.text_area("Write the Body", height=300)
         
         uploaded_file_attach = st.file_uploader("Choose a file to attach", type=["pdf"])
