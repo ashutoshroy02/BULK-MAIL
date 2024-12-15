@@ -1,3 +1,4 @@
+import streamlit as st
 # CSS styles
 css = """
 <style>
