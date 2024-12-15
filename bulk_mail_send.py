@@ -5,9 +5,9 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 import streamlit as st
 import io
-# from frontend import render_frontend
+from frontend import render_frontend
 st.title("Automatic/Bulk Email sender")
-# render_frontend()
+render_frontend()
 sender_email = st.text_input("Enter your Email address ")
 
 if sender_email:
@@ -19,7 +19,6 @@ if sender_email:
         upload_option = st.radio("Choose how to provide recipients", 
                                  ("Upload File (Excel/CSV)", 
                                   "Predefined IIT List", 
-                                  "Companies HR List",
                                   "Enter Other Emails"))
 
         recipients = []
@@ -46,9 +45,9 @@ if sender_email:
             df = pd.read_csv('iit_professors_emails.csv')
             recipients = df[['name', 'email']].values.tolist()
                 
-        elif upload_option == "Companies HR List":
-            df = pd.read_csv('100_companies_list.csv')
-            recipients = df[['email']].values.tolist() 
+        # elif upload_option == "Companies HR List":
+        #     df = pd.read_csv('100_companies_list.csv')
+        #     recipients = df[['email']].values.tolist() 
             
         elif upload_option == "Enter Other Emails":
             other_recipients = st.text_input("Enter the Recipient Emails (separated by commas)")
@@ -82,10 +81,10 @@ if sender_email:
                         # new_body = body
                         new_body = f"Dear {name},\n\n" + body
                         
-                    elif upload_option == "Companies HR List":
-                        old_body = body
-                        # new_body = body
-                        new_body = f"Dear Hiring Manager,\n\n" + body
+                    # elif upload_option == "Companies HR List":
+                    #     old_body = body
+                    #     # new_body = body
+                    #     new_body = f"Dear Hiring Manager,\n\n" + body
                     
                     else:
                         new_body=body
@@ -118,9 +117,9 @@ if sender_email:
                     if upload_option == "Upload File (Excel/CSV)":
                         st.write(f"{i} mail sent to {name}.")
                         new_body = old_body
-                    elif upload_option == "Companies HR List":
-                        st.write(f"{i} mail sent.")
-                        new_body = old_body
+                    # elif upload_option == "Companies HR List":
+                    #     st.write(f"{i} mail sent.")
+                    #     new_body = old_body
                     else:
                         st.write(f"{i} mail sent.")  
                         
