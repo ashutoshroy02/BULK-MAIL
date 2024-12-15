@@ -21,7 +21,6 @@ section{
     background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg");
 /*   background-color:black; */
     background-size: cover;
-    animation: animateBg 50s linear infinite;
 }
 
 @keyframes animateBg{
