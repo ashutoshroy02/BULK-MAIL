@@ -18,8 +18,7 @@ if sender_email:
         # Choose file upload or prelist option
         upload_option = st.radio("Choose how to provide recipients", 
                                  ("Upload File (Excel/CSV)", 
-                                  "Predefined IIT List",
-                                   
+                                  "Predefined IIT List",                     
                                   "Enter Other Emails"))
 
         recipients = []
@@ -81,10 +80,12 @@ if sender_email:
                         old_body = body
                         # new_body = body
                         new_body = f"Dear {name},\n\n" + body
-                    elif upload_option == "Companies HR List":
-                        old_body = body
-                        # new_body = body
-                        new_body = f"Dear Hiring Manager,\n\n" + body
+                        
+                    # elif upload_option == "Companies HR List":
+                    #     old_body = body
+                    #     # new_body = body
+                    #     new_body = f"Dear Hiring Manager,\n\n" + body
+                    
                     else:
                         new_body=body
                                      
