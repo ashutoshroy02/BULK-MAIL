@@ -18,7 +18,8 @@ if sender_email:
         # Choose file upload or prelist option
         upload_option = st.radio("Choose how to provide recipients", 
                                  ("Upload File (Excel/CSV)", 
-                                  "Predefined IIT List",                     
+                                  "Predefined IIT List", 
+                                  "Companies HR List",
                                   "Enter Other Emails"))
 
         recipients = []
@@ -45,9 +46,9 @@ if sender_email:
             df = pd.read_csv('iit_professors_emails.csv')
             recipients = df[['name', 'email']].values.tolist()
                 
-        # elif upload_option == "Companies HR List":
-        #     df = pd.read_csv('100_companies_list.csv')
-        #     recipients = df.iloc[:, 0].tolist() 
+        elif upload_option == "Companies HR List":
+            df = pd.read_csv('100_companies_list.csv')
+            recipients = df.iloc[:, 0].tolist() 
             
         elif upload_option == "Enter Other Emails":
             other_recipients = st.text_input("Enter the Recipient Emails (separated by commas)")
@@ -81,10 +82,10 @@ if sender_email:
                         # new_body = body
                         new_body = f"Dear {name},\n\n" + body
                         
-                    # elif upload_option == "Companies HR List":
-                    #     old_body = body
-                    #     # new_body = body
-                    #     new_body = f"Dear Hiring Manager,\n\n" + body
+                    elif upload_option == "Companies HR List":
+                        old_body = body
+                        # new_body = body
+                        new_body = f"Dear Hiring Manager,\n\n" + body
                     
                     else:
                         new_body=body
@@ -116,6 +117,9 @@ if sender_email:
                     # Provide progress feedback
                     if upload_option == "Upload File (Excel/CSV)":
                         st.write(f"{i} mail sent to {name}.")
+                        new_body = old_body
+                    elif upload_option == "Companies HR List":
+                        st.write(f"{i} mail sent.")
                         new_body = old_body
                     else:
                         st.write(f"{i} mail sent.")  
