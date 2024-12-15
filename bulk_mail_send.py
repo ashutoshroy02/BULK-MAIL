@@ -48,7 +48,7 @@ if sender_email:
                 
         elif upload_option == "Companies HR List":
             df = pd.read_csv('100_companies_list.csv')
-            recipients = df['email'].values.tolist() 
+            recipients = [(None, email) for email in df['email'].tolist()]
             
         elif upload_option == "Enter Other Emails":
             other_recipients = st.text_input("Enter the Recipient Emails (separated by commas)")
