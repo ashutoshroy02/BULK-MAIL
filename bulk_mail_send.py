@@ -7,7 +7,7 @@ import streamlit as st
 import io
 from frontend import render_frontend
 st.title("Automatic/Bulk Email sender")
-
+render_frontend()
 sender_email = st.text_input("Enter your Email address ")
 
 if sender_email:
