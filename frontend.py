@@ -2,116 +2,163 @@ import streamlit as st
 # CSS styles
 css = """
 <style>
-body {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  min-height: 100vh;
-  background-image: linear-gradient(80deg, rgb(5, 124, 172), rgb(199, 10, 114));
-  overflow: hidden;
+*
+{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+section{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* https://lh3.googleusercontent.com/ka_5IYJDRkXZnbptxq64LPuggGL5FM8gnpJlsuSiOQh4b39kMkiRbVfX8iK8bjMg5SLkdfoix09P60wyFjN2=w681-h614 */
+    background: url("https://i.postimg.cc/c1Q3njM0/bg2.jpg");
+/*   background-color:black; */
+    background-size: cover;
+    animation: animateBg 50s linear infinite;
 }
 
-#up {
-    position: absolute; 
-    height: 800px;
-    width: 800px;
-    border-radius: 50%;
-    background-image: linear-gradient(80deg, rgb(5, 124, 172), rgb(43, 247, 202, 0.5));
-    filter: blur(80px);
-    animation: down 40s infinite;
+@keyframes animateBg{
+    0%,100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
 }
-#down {
-    position: absolute; 
+
+span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,0.1);
+    animation: animate 3s linear infinite;
+}
+span::before{
+    content:'';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg,#fff,transparent);
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+span:nth-child(1){
+    top: 0;
     right: 0;
-    height: 500px;
-    width: 500px;
-    border-radius: 50%;
-    background-image: linear-gradient(80deg, rgba(245, 207, 82, 0.8), rgba(199, 10, 114))
-    filter: blur(80px);
-    animation: up 30s infinite;
+    left: initial;
+    animation-delay: 0s;
+    animation-duration: 1s;
 }
-
-#left {
-    position: absolute;
-    height: 500px;
-    width: 500px;
-    border-radius: 50%;
-    background-image: linear-gradient(80deg, rgb(199, 10, 160), rgba(183, 253, 52, 0.8));
-    filter: blur(80px);
-    animation: left 40s 1s infinite;
+span:nth-child(2){
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
 }
-
-#right {
-    position: absolute;
-    height: 500px;
-    width: 500px;
-    border-radius: 50%;
-    background-image: linear-gradient(80deg, rgba(26, 248, 18, 0.6), rgba(199, 10, 52, 0.8));
-    filter: blur(80px);
-    animation: right 30s .5s infinite;
+span:nth-child(3){
+    top: 80;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
 }
-
-@keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+span:nth-child(4){
+    top: 0;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
 }
-@keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(5px); }
-    100% { transform: translateY(0px); }
+span:nth-child(5){
+    top: 0;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
 }
-
-@keyframes down {
-    0%, 100%{
-        top: -100px;
-    }
-    70%{
-        top: 700px;
-    }
+span:nth-child(6){
+    top: 0;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 3s;
 }
-
-@keyframes up {
-    0%, 100%{
-        bottom: -100px;
-    }
-    70%{
-        bottom: 700px;
-    }
+span:nth-child(7){
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 1.75s;
 }
-@keyframes left {
-    0%, 100%{
-        left: -100px;
-    }
-    70%{
-        left: 1000px;
-    }
+span:nth-child(8){
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
 }
-
-@keyframes right {
-    0%, 100%{
-        right: -100px;
-    }
-    70%{
-        right: 1000px;
-    }
+span:nth-child(9){
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
 }
-
-a:hover {
-    color: black;
-}
-a:hover button {
-    background-color: white !important;
-    color: black !important;
+span:nth-child(9){
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.75s;
 }
 </style>
 """
 
 # HTML content
 html = """
-<section id="up"></section>
-<section id="down"></section>
-<section id="left"></section>
-<section id="right"></section>
+<body>
+        <section>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </section>
+</body>
 """
 
 
