@@ -18,7 +18,7 @@ if sender_email:
         # Choose file upload or prelist option
         upload_option = st.radio("Choose how to provide recipients", 
                                  ("Upload File (Excel/CSV)", 
-                                  "Predefined IIT List"
+                                  "Predefined IIT List",
                                   "Companies HR List", 
                                   "Enter Other Emails"))
 
