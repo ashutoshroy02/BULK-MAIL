@@ -19,7 +19,7 @@ if sender_email:
         upload_option = st.radio("Choose how to provide recipients", 
                                  ("Upload File (Excel/CSV)", 
                                   "Predefined IIT List",
-                                  "Companies HR List", 
+                                   
                                   "Enter Other Emails"))
 
         recipients = []
@@ -46,9 +46,9 @@ if sender_email:
             df = pd.read_csv('iit_professors_emails.csv')
             recipients = df[['name', 'email']].values.tolist()
                 
-        elif upload_option == "Companies HR List":
-            df = pd.read_csv('100_companies_list.csv')
-            recipients = df.iloc[:, 0].tolist() 
+        # elif upload_option == "Companies HR List":
+        #     df = pd.read_csv('100_companies_list.csv')
+        #     recipients = df.iloc[:, 0].tolist() 
             
         elif upload_option == "Enter Other Emails":
             other_recipients = st.text_input("Enter the Recipient Emails (separated by commas)")
