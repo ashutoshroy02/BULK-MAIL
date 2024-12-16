@@ -11,6 +11,7 @@ Try it out here: [Bulk Email Sender](https://bulkymail.streamlit.app) 🚀
 - **Multiple Recipient Options:**
   - Upload recipient lists via Excel/CSV files.
   - Use a predefined list of IIT professor emails.
+  - Use a Companies HR List
   - Manually input email addresses.
 - **Email Personalization:**
   - Automatically adds personalized salutations for recipients.
