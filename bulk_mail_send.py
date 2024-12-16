@@ -12,7 +12,7 @@ sender_email = st.text_input("Enter your Email address ")
 
 if sender_email:
     password = st.text_input("Enter your App Password ", type="password")
-    st.markdown("[FIND YOUR APP PASSWORD](https://youtu.be/lSURGX0JHbA?si=_2nHAIOYnStzGlEA)")
+    st.markdown("[FIND YOUR APP PASSWORD](https://youtu.be/JfTGn2Mm2-Y?si=8GH2Yvl2HQvvATDU )")
 
     if password:
         # Choose file upload or prelist option
