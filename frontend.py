@@ -147,24 +147,24 @@ html = """
 <head>
     <meta name="google-adsense-account" content="ca-pub-7603754372960896">
 </head>
-<body>
-        <section>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </section>
-</body>
+# <body>
+#         <section>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#             <span></span>
+#         </section>
+# </body>
 """
 
 
 def render_frontend():
-    st.markdown(css, unsafe_allow_html=True)
+    # st.markdown(css, unsafe_allow_html=True)
     st.markdown(html, unsafe_allow_html=True)
 render_frontend()
