@@ -146,21 +146,9 @@ span:nth-child(9){
 html = """
 <head>
     <meta name="google-adsense-account" content="ca-pub-7603754372960896">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603754372960896"
+     crossorigin="anonymous"></script>
 </head>
-# <body>
-#         <section>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#             <span></span>
-#         </section>
-# </body>
 """
 
 
