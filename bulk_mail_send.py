@@ -6,14 +6,33 @@ import pandas as pd
 import streamlit as st
 import io
 import streamlit.components.v1 as components
+from adsense_meta import get_adsense_meta_tag
 
-# Inject AdSense code into the app
-adsense_code = """
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603754372960696"
-        crossorigin="anonymous"></script>
+# Add AdSense Meta Tag
+meta_tag = get_adsense_meta_tag()
+components.html(f"""
+<!DOCTYPE html>
+<html>
+<head>
+    {meta_tag}
+</head>
+<body></body>
+</html>
+""", height=0)
+
+# Add AdSense Meta Tag
+meta_tag = """
+<meta name="google-adsense-account" content="ca-pub-7603754372960896">
 """
-# Render the AdSense code
-components.html(adsense_code, height=0, width=0)
+components.html(f"""
+<!DOCTYPE html>
+<html>
+<head>
+    {meta_tag}
+</head>
+<body></body>
+</html>
+""", height=0)
 
 # from frontend import render_frontend
 st.title("Automatic/Bulk Email sender")
