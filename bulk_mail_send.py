@@ -7,33 +7,34 @@ import streamlit as st
 import io
 import streamlit.components.v1 as components
 from adsense_meta import get_adsense_meta_tag
-
+from frontend import render_frontend
 # Add AdSense Meta Tag
-meta_tag = get_adsense_meta_tag()
-components.html(f"""
-<!DOCTYPE html>
-<html>
-<head>
-    {meta_tag}
-</head>
-<body></body>
-</html>
-""", height=0)
+# meta_tag = get_adsense_meta_tag()
+# components.html(f"""
+# <!DOCTYPE html>
+# <html>
+# <head>
+#     {meta_tag}
+# </head>
+# <body></body>
+# </html>
+# """, height=0)
 
-# Add AdSense Meta Tag
-meta_tag = """
-<meta name="google-adsense-account" content="ca-pub-7603754372960896">
-"""
-components.html(f"""
-<!DOCTYPE html>
-<html>
-<head>
-    {meta_tag}
-</head>
-<body></body>
-</html>
-""", height=0)
+# # Add AdSense Meta Tag
+# meta_tag = """
+# <meta name="google-adsense-account" content="ca-pub-7603754372960896">
+# """
+# components.html(f"""
+# <!DOCTYPE html>
+# <html>
+# <head>
+#     {meta_tag}
+# </head>
+# <body></body>
+# </html>
+# """, height=0)
 
+render_frontend()
 # from frontend import render_frontend
 st.title("Automatic/Bulk Email sender")
 # render_frontend()
