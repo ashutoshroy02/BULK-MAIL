@@ -144,6 +144,9 @@ span:nth-child(9){
 
 # HTML content
 html = """
+<head>
+    <meta name="google-adsense-account" content="ca-pub-7603754372960896">
+</head>
 <body>
         <section>
             <span></span>
