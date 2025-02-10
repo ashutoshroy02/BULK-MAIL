@@ -5,6 +5,16 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 import streamlit as st
 import io
+import streamlit.components.v1 as components
+
+# Inject AdSense code into the app
+adsense_code = """
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603754372960696"
+        crossorigin="anonymous"></script>
+"""
+# Render the AdSense code
+components.html(adsense_code, height=0, width=0)
+
 # from frontend import render_frontend
 st.title("Automatic/Bulk Email sender")
 # render_frontend()
