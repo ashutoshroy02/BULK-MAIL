@@ -5,6 +5,7 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 import streamlit as st
 import io
+import streamlit.components.v1 as components
 
 htmlfile = open('test.html', 'r', encoding='utf-8')
 source_code = htmlfile.read()
