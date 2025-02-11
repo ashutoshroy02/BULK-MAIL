@@ -10,10 +10,16 @@ from frontend import render_frontend
 # Add AdSense Meta Tag
 
 html = """
+<html>
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603754372960896"
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603754372960896"
      crossorigin="anonymous"></script>
+<title>Example HTML page</title>
 </head>
+<body>
+This is the body of your page.
+</body>
+</html>
 """
 st.markdown(html, unsafe_allow_html=True)
 # # Add AdSense Meta Tag
