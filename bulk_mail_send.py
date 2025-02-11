@@ -7,8 +7,19 @@ import streamlit as st
 import io
 import streamlit.components.v1 as components
 
-htmlfile = open('test.html', 'r', encoding='utf-8')
-source_code = htmlfile.read()
+st.components.v1.html("""
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7603754372960896"
+     data-ad-slot="1234567890"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+""", height=300)
+# htmlfile = open('test.html', 'r', encoding='utf-8')
+# source_code = htmlfile.read()
 # print(source_code)
 # <meta name="google-adsense-account" content="ca-pub-7603754372960896">
 # """
@@ -148,4 +159,4 @@ if sender_email:
             finally:
                 server.quit()
 
-components.html(source_code, height=600)
+# components.html(source_code, height=600)
