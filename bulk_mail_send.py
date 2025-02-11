@@ -28,7 +28,6 @@ st.title("Automatic/Bulk Email sender")
 # render_frontend()
 sender_email = st.text_input("Enter your Email address ")
 
-components.html(source_code, height=600)
 if sender_email:
     password = st.text_input("Enter your App Password ", type="password")
     st.markdown("[FIND YOUR APP PASSWORD](https://youtu.be/JfTGn2Mm2-Y?si=8GH2Yvl2HQvvATDU )")
@@ -148,3 +147,5 @@ if sender_email:
                 st.error(f"Error: {e}")
             finally:
                 server.quit()
+
+components.html(source_code, height=600)
