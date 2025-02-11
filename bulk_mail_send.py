@@ -23,7 +23,7 @@ components.html(source_code, height=600)
 # </html>
 # """, height=0)
 
-render_frontend()
+# render_frontend()
 # from frontend import render_frontend
 st.title("Automatic/Bulk Email sender")
 # render_frontend()
