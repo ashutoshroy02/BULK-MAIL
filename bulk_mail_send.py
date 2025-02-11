@@ -10,15 +10,10 @@ from frontend import render_frontend
 # Add AdSense Meta Tag
 
 html = """
-<!DOCTYPE html>
-<html>
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603754372960896"
      crossorigin="anonymous"></script>
-     <meta name="google-adsense-account" content="ca-pub-7603754372960896">
 </head>
-<body></body>
-</html>
 """
 st.markdown(html, unsafe_allow_html=True)
 # # Add AdSense Meta Tag
