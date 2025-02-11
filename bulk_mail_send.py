@@ -6,8 +6,8 @@ import pandas as pd
 import streamlit as st
 import io
 
-HtmlFile = open(“test.html”, ‘r’, encoding=‘utf-8’)
-source_code = HtmlFile.read()
+htmlfile = open('test.html', 'r', encoding='utf-8') as f:
+    source_code = htmlfile.read()
 # print(source_code)
 components.html(source_code, height=600)
 # <meta name="google-adsense-account" content="ca-pub-7603754372960896">
