@@ -10,7 +10,6 @@ import streamlit.components.v1 as components
 htmlfile = open('test.html', 'r', encoding='utf-8')
 source_code = htmlfile.read()
 # print(source_code)
-components.html(source_code, height=600)
 # <meta name="google-adsense-account" content="ca-pub-7603754372960896">
 # """
 # components.html(f"""
@@ -29,6 +28,7 @@ st.title("Automatic/Bulk Email sender")
 # render_frontend()
 sender_email = st.text_input("Enter your Email address ")
 
+components.html(source_code, height=600)
 if sender_email:
     password = st.text_input("Enter your App Password ", type="password")
     st.markdown("[FIND YOUR APP PASSWORD](https://youtu.be/JfTGn2Mm2-Y?si=8GH2Yvl2HQvvATDU )")
