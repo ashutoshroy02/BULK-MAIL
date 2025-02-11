@@ -5,25 +5,11 @@ from email.mime.application import MIMEApplication
 import pandas as pd
 import streamlit as st
 import io
-# import streamlit.components.v1 as components
-from frontend import render_frontend
-# Add AdSense Meta Tag
 
-html = """
-<html>
-<head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603754372960896"
-     crossorigin="anonymous"></script>
-<title>Example HTML page</title>
-</head>
-<body>
-This is the body of your page.
-</body>
-</html>
-"""
-st.markdown(html, unsafe_allow_html=True)
-# # Add AdSense Meta Tag
-# meta_tag = """
+HtmlFile = open(“test.html”, ‘r’, encoding=‘utf-8’)
+source_code = HtmlFile.read()
+# print(source_code)
+components.html(source_code, height=600)
 # <meta name="google-adsense-account" content="ca-pub-7603754372960896">
 # """
 # components.html(f"""
