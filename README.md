@@ -73,10 +73,6 @@ To run this app locally:
 - Use a Gmail app-specific password for enhanced security.
 - Always keep sensitive information safe when sharing files or credentials.
 
----
-
-## Acknowledgments
-Special thanks to Baibhav for providing the IIT email list used in this project.
 
 ---
 
